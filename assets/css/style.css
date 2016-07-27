@@ -1,0 +1,41 @@
+body {
+ background-image: url(../images/backgroundImage.jpg);
+background-repeat: no-repeat;
+    background-size:  100%;
+}
+
+.heading {
+background-color: white;
+    text-align: center;
+}
+
+
+.question-heading{
+    background-color: white;
+    height: 150px;
+    margin-top: 3%;
+    border-style: solid;
+    border-color: #ccc;
+    border-width: 1px 0px 1px 0px;
+    
+   
+}
+.questions{
+    background-color: white;
+    height: 100px;
+    -webkit-transition: 0.1s;
+}
+
+.questions:hover{
+    width: 67%;
+}
+
+.question-buttons{
+  
+    border-color: #ccc;
+    border-radius: 0px;
+}
+
+.text-question{
+    text-align: left;
+}

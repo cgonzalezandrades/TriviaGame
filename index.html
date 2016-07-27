@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Trivia Game</title>
+
+    <link href="assets/css/reset.css" type="text/css">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet"></link>
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+    <!--    <script src="assets/javascript/app.js" type="text/javascript"></script>-->
+</head>
+
+
+<body>
+
+
+    <header>
+        <div class="row heading">
+            <h1>Trivia Game</h1>
+        </div>
+    </header>
+
+    <div class="row">
+        <div id="start"></div>
+
+    </div>
+
+    <div class="row trivia-heading">
+
+        <div class="col-md-offset-2 col-md-4">
+            <!--            question-heading check-question-->
+            <!--            Number of questions + Questions-->
+        </div>
+
+        <div class="col-md-4">
+            <!--
+            question-heading check-answers
+            Indicators of correct and Wrong
+-->
+        </div>
+    </div>
+
+
+
+    <div class="row question">
+
+        <!--                <button class=" questions question-buttons col-md-offset-2 col-md-8 btn btn-default btn-lg"> -->
+
+        <div class="col-sm-2 option">
+        </div>
+        <div class="col-sm-10 text-question">
+        </div>
+
+
+    </div>
+
+
+
+</body>
+
+<script>
+    var arrayQuestions = ['What is the name of the character that wears red clothes', 'Who is the brother of Luigi ?',"what is your name","what is my name"];
+
+    window.onload = function () {
+
+        var $startButton = $("<button/>")
+            .addClass("questions question-buttons col-md-offset-2 col-md-8 btn btn-default btn-lg").html("Start Game");
+
+        $("#start").append($startButton);
+
+
+        console.log($startButton);
+        $("#start").click(startTrivia);
+
+    }
+
+
+
+    function startTrivia() {
+
+
+
+        $("#start").hide();
+
+        createQuestions();
+
+        //console.log("hello");
+
+    }
+
+    function createQuestions() {
+
+        for (var i = 0; arrayQuestions.length >i; i++) {
+            var $questionButton = $("<button/>").addClass(" questions question-buttons col-md-offset-2 col-md-8 btn btn-default btn-lg")
+                .html(arrayQuestions[i]);;
+
+
+            $(".question").append($questionButton);
+
+        }
+
+        //        $(".option").before(("a"));
+        //        $(".text-question").after("who");
+
+
+
+
+
+
+    }
+</script>
+
+
+</html>
