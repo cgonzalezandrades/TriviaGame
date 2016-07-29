@@ -1,7 +1,10 @@
 body {
  background-image: url(../images/backgroundImage.jpg);
 background-repeat: no-repeat;
-    background-size:  100%;
+    background-size: 110% auto;
+    margin-right: auto;
+/*    letter-spacing: 1px;*/
+   
 }
 
 .heading {
@@ -10,32 +13,91 @@ background-color: white;
 }
 
 
-.question-heading{
-    background-color: white;
-    height: 150px;
-    margin-top: 3%;
-    border-style: solid;
-    border-color: #ccc;
-    border-width: 1px 0px 1px 0px;
-    
-   
-}
-.questions{
+.choice{
     background-color: white;
     height: 100px;
-    -webkit-transition: 0.1s;
-}
-
-.questions:hover{
-    width: 67%;
-}
-
-.question-buttons{
-  
+    border-style: solid;
+    border-radius: 20px;
     border-color: #ccc;
-    border-radius: 0px;
+    border-width: 1px 0px 1px 0px;
+    text-align: center;
 }
 
-.text-question{
-    text-align: left;
+.choice:hover{
+/*  color: b;*/
+    background-color: white;
+    cursor: pointer;
+    border-left: 10px solid #ffa544;
+    border-right: 10px solid #ffa544;
+}
+
+.question{
+    background-color: #bae8ff;
+    color: white;
+    height: 100px;
+    margin-top: 2%;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: #ccc;
+    border-width: 1px 0px 1px 0px;
+    text-align: center;
+    
+}
+
+.question-row, .choice-row{
+    font-family: sans-serif;
+    font-size: 2em;
+}
+
+/*
+#question-number{
+   text-align: center;
+    font-family: sans-serif;
+    font-size: 1em;
+}
+*/
+
+
+.start-button{
+    background-color: black;
+    height: 100px;
+    color: white;
+    font-weight: 900;
+  
+    
+    
+    margin: 15% 0px 0px 0px;
+    margin-left: 45%;
+}
+
+.start-button:hover{
+    
+
+    color: white;
+    font-weight: 900;
+    
+    -webkit-animation-name: example; 
+    -webkit-animation-duration: 9s; 
+    
+    animation-name: example;
+    animation-duration: 9s;
+    
+}
+
+.btn-default:hover{
+    background-color: #ffa544;
+}
+
+.clearfix{
+    overflow: auto;
+}
+
+
+
+
+
+@keyframes example {
+    from {background-color: black;}
+    to {background-color: #ffa544;}
+    
 }
