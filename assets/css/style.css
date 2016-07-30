@@ -12,6 +12,15 @@ background-color: white;
     text-align: center;
 }
 
+.time{
+font-size: 2em;
+    font-family: serif;
+    font-style: oblique;
+}
+
+
+
+
 
 .choice{
     background-color: white;
@@ -41,6 +50,7 @@ background-color: white;
     border-color: #ccc;
     border-width: 1px 0px 1px 0px;
     text-align: center;
+    word-wrap: normal;
     
 }
 

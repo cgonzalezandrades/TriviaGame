@@ -24,37 +24,43 @@
         </div>
     </header>
 
-    <div class="container-fluid">
+    <div class="row">
 
-        <!--Start button-->
-        <div class="row">
-            <div id="start"></div>
+        <div class="container-fluid">
 
-        </div>
+            <!--Start button-->
+            <div class="row stopWatch"></div>
 
-        <!--Trivia Game Question & heading    -->
-        <div class="row trivia">
-            <div class="row question-row">
-
-
+            <div class="row">
+                <div id="start"></div>
 
             </div>
 
 
-            <!--Choices-->
+            <!--Trivia Game Question & heading    -->
+            <div class="row trivia">
+                <div class="row question-row">
 
-            <div class="row choice-row">
+                </div>
 
+                <!--Choices-->
+
+                <div class="row choice-row">
+
+
+                </div>
 
             </div>
-
         </div>
     </div>
+
 
 </body>
 
 <script>
+    var questionCount = 0;
     var Questions = {
+
 
         "quiz": [
             {
@@ -165,71 +171,120 @@
 
     }
 
+    var timer = {
+        time: 0,
+        start: function () {
+            var timeInterval = setInterval(timer.count, 1000);
+        },
+        count: function () {
+            $(".stopWatch").empty();
+            timer.time++;
+            var converter = timer.timeConverter(timer.time);
+
+            var $timeStamp = $("<div/>")
+                .addClass("col-sm-offset-1 col-sm-2 time")
+                .html(converter);
+
+            $(".stopWatch").append($timeStamp);
+            if (timer.time === 5) {
+                 questionCount++;
+                timer.time = 0;
+                createQuestions(questionCount);
+               
+
+            }
+
+
+        },
+
+        timeConverter: function (t) {
+
+            var minutes = Math.floor(t / 60);
+            var seconds = t - (minutes * 60);
+
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+            //           
+            return seconds;
+        }
+    }
+
 
     window.onload = function () {
 
         console.log(Questions.quiz.length);
 
         var $startButton = $("<button/>")
-            .addClass("start-button btn btn-default btn-lg").html("Start Game");
+            .addClass("start-button btn btn-default btn-lg")
+            .html("Start Game");
 
         $("#start").append($startButton);
-
+        $("#start").on("click", timer.start);
         $("#start").click(startTrivia);
-
     }
 
-
-
     function startTrivia() {
-        var count =0
+
         $("#start").hide();
-        
-       
-
-            createQuestions(count);
-
-            //         $(".trivia").hide();
+        createQuestions(questionCount);
+        questionCount = 0;
         
 
 
+        //         $(".trivia").hide();
     }
 
     function createQuestions(count) {
+
         $(".question-row").empty();
         $(".choice-row").empty();
-        
 
-        //        var correctChoice = Questions.quiz
         var $question = $("<div/>")
-            .addClass(" col-md-offset-3 col-md-6 question")
+            .addClass(" col-sm-offset-3 col-sm-6 question")
             .html(Questions.quiz[count].question);
 
         $(".question-row").append($question);
 
 
         for (var i = 0; Questions.quiz[count].choices.length > i; i++) {
-
             var $choices = $("<div/>")
-                .addClass("col-md-offset-3 col-md-6 choice")
+                .addClass("col-sm-offset-3 col-sm-6 choice")
+            .attr('answer-id',i)
                 .html(Questions.quiz[count].choices[i]);
 
             $(".choice-row").append($choices);
-
         }
+
         
-        $(".choice-row").on("click",function(){
+        $(".choice").on("click", function click() {
+            
+            var attribute = this.getAttribute('answer-id');
+
+            
+            checkAnswer(questionCount,attribute);
+            timer.time = 0;
+            questionCount++;
+            createQuestions(questionCount);
             
             
-            count++;
-            createQuestions(count);
-            
-            
+
         });
 
 
-
     }
+    
+    function checkAnswer(count,attribute){
+      
+//        if(Questions.quiz[questionCount].answer === )
+        
+        console.log(Questions.quiz[questionCount].answer);
+        
+    
+    }
+    
+    
+    
 </script>
 
 
